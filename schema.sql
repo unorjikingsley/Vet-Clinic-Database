@@ -10,8 +10,3 @@ CREATE TABLE animals (
     species varchar(255) NOT NULL,
     PRIMARY KEY(id)
 );
-
--- how to add a new column to a table
-
--- ALTER TABLE animals
--- ADD species VARCHAR(255);

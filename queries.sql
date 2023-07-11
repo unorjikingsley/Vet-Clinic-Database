@@ -36,6 +36,8 @@ UPDATE animals
 SET species = 'pokemon'
 WHERE species IS NULL;
 
+SELECT species FROM animals;
+
 COMMIT;
 
 BEGIN;
@@ -52,6 +54,8 @@ SAVEPOINT SP5;
 
 UPDATE animals
 SET weight_kg = weight_kg * (-1);
+
+ROLLBACK TO SAVEPOINT SP5;
 
 UPDATE animals
 SET weight_kg = weight_kg * (-1)
