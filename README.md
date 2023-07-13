@@ -1,3 +1,10 @@
+<a name="readme-top"></a>
+<div align="center">
+  <img src="./profile/brand.png" alt="logo"/>
+  <br/>  
+  <h2><b>Vet Clinic Database</b></h2>
+</div>
+
 <!--
 HOW TO USE:
 This is an example of how you may give instructions on setting up your project locally.
@@ -29,7 +36,7 @@ After you're finished please remove all the comments and instructions!
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
-  - [🚀 Live Demo](#live-demo)
+  <!-- - [🚀 Live Demo](#live-demo) -->
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -42,7 +49,7 @@ After you're finished please remove all the comments and instructions!
 - [🤝 Contributing](#contributing)
 - [⭐️ Show your support](#support)
 - [🙏 Acknowledgements](#acknowledgements)
-- [❓ FAQ](#faq)
+<!-- - [❓ FAQ](#faq) -->
 - [📝 License](#license)
 
 <!-- PROJECT DESCRIPTION -->
