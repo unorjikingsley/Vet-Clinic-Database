@@ -59,7 +59,7 @@ CREATE TABLE vets (
   id SERIAL PRIMARY KEY,
   name varchar(255),
   age INT,
-  date_of_graduation DATE,
+  date_of_graduation DATE
 );
 
 /* There is a many-to-many relationship between the tables species and vets: a vet can specialize in multiple species, and a species can have multiple vets specialized in it. Create a "join table" called specializations to handle this relationship. */
