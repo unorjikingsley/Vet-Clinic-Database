@@ -189,8 +189,6 @@ Example:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **[add_join table]**
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTRIBUTING -->
