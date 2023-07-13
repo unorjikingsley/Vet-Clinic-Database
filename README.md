@@ -189,6 +189,9 @@ Example:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
+- [ ] Less Space and Time Complexity
+- [ ] More Efficient Data Retrieval
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTRIBUTING -->
