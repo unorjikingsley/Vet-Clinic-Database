@@ -19,10 +19,10 @@ ADD species VARCHAR(255);
 /* day 3 - Create another tables */
 
 CREATE TABLE owners (
-    id SERIAL PRIMARY KEY,
+   id SERIAL PRIMARY KEY,
     full_name varchar(255),
     age integer
-);
+); 
 
 CREATE TABLE species (
     id SERIAL PRIMARY KEY,
@@ -53,16 +53,38 @@ ALTER TABLE animals
 ADD FOREIGN KEY (owner_id),
   REFERENCES owners(id);
 
+/*DAY 4*/
+/* Create a table named vets with the following columns: */
+CREATE TABLE vets (
+  id SERIAL PRIMARY KEY,
+  name varchar(255),
+  age INT,
+  date_of_graduation DATE,
+);
 
--- cr
---   -- Modify animals table
--- alter table animals add primary key(id); -- Set Id column as primary key in animals table
--- -- Remove column species
--- alter table animals
--- drop column species;
--- -- Add species_id column to animals table an set it as foreign key referencing species table
--- alter table animals add column species_id int;
--- alter table animals add foreign key (species_id) references species(id);
--- -- Add owners_id column to animals table an set it as foreign key referencing owners table
--- alter table animals add column owner_id int;
--- alter table animals add foreign key (owner_id) references owners(id);
+/* There is a many-to-many relationship between the tables species and vets: a vet can specialize in multiple species, and a species can have multiple vets specialized in it. Create a "join table" called specializations to handle this relationship. */
+CREATE TABLE specializations (
+    vet_id INT,
+    species_id INT,
+    PRIMARY KEY (vet_id, species_id),
+    CONSTRAINT fk_vets
+        FOREIGN KEY (vet_id)
+            REFERENCES vets(id),
+    CONSTRAINT fk_species
+        FOREIGN KEY (species_id)
+            REFERENCES species(id)
+);
+
+/* There is a many-to-many relationship between the tables animals and vets: an animal can visit multiple vets and one vet can be visited by multiple animals. Create a "join table" called visits to handle this relationship, it should also keep track of the date of the visit. */
+CREATE TABLE visits(
+    vet_id INT,
+    animal_id INT,
+    date_of_visit DATE,
+    PRIMARY KEY (vet_id, animal_id, date_of_visit),
+    CONSTRAINT fk_vets
+        FOREIGN KEY (vet_id)
+            REFERENCES vets(id),
+    CONSTRAINT fk_animals
+        FOREIGN KEY (animal_id)
+            REFERENCES animals(id)
+);
