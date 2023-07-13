@@ -23,3 +23,56 @@ INSERT INTO animals (name, date_of_birth, escape_attempts, neutered, weight_kg) 
 INSERT INTO animals (name, date_of_birth, escape_attempts, neutered, weight_kg) VALUES ('Blossom', '1998-10-13', 3, true, 17.00);
 
 INSERT INTO animals (name, date_of_birth, escape_attempts, neutered, weight_kg) VALUES ('Ditto', '2022-05-14', 4, true, 22.00);
+
+-- insert into the owner table
+INSERT INTO owners (full_name, age)
+VALUES ('Sam Smith', 34),
+       ('Jennifer Orwell', 19),
+       ('Bob', 45),
+       ('Melody Pond', 77),
+       ('Dean Winchester', 14),
+       ('Jodie Whittaker', 38);
+
+/* insert into the species table */
+INSERT INTO species (name)
+VALUES ('Pokemon'),
+       ('Digimon');
+
+/* Modify your inserted animals so it includes the species_id value:
+If the name ends in "mon" it will be Digimon and All other animals are Pokemon */
+UPDATE animals
+SET species_id = (
+    CASE
+        WHEN name LIKE '%mon' THEN (SELECT id FROM species WHERE name = 'Digimon')
+        ELSE (SELECT id FROM species WHERE name = 'Pokemon')
+    END
+);
+
+UPDATE animals SET species_id = 'Digimon' WHERE name LIKE '%mon';
+UPDATE animals SET species_id = 'Pokemon' WHERE name NOT LIKE '%mon';
+
+UPDATE animals
+SET species_id = 2
+WHERE name LIKE '%mon';
+
+UPDATE animals
+SET species_id = 1
+WHERE species IS NULL;
+
+
+/* Modify your inserted animals to include owner information (owner_id):*/
+
+-- Sam Smith owns Agumon
+UPDATE animals SET owner_id = 1 WHERE name = 'Agumon';
+
+-- Jennifer Orwell owns Plantmon
+UPDATE animals SET owner_id = 2 WHERE name IN ('Gabumon','Pikachu');
+
+-- Bob owns Devimon and Plantmon.
+UPDATE animals SET owner_id = 3 WHERE name IN ('Devimon','Plantmon');
+
+-- Melody Ponds owns Charmander, Squirtle, and Blossom.
+UPDATE animals SET owner_id = 4 WHERE name IN ('Charmander','Squirtle','Blossom');
+
+-- Dean Winchester owns Angemon and Boarmon.
+UPDATE animals SET owner_id = 5 WHERE name IN ('Angemon','Boarmon');
