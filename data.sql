@@ -318,3 +318,12 @@ INSERT 0 2500000
 -- https://thoughtbot.com/blog/reading-an-explain-analyze-query-plan
 
 
+
+-- CREATE MATERIALIZED VIEW visit_by_vet_id AS SELECT * FROM visits where vet_id = 2;
+/* 
+The given syntax creates a materialized view named "visit_by_vet_id" based on a 
+SELECT query from the "visits" table. The materialized view is filtered to include 
+only those rows where the "vet_id" column has a value of 2. 
+*/
+
+
